@@ -1,66 +1,173 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
 
-export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+import { Typography, Button, Divider } from 'antd';
+
+import { CentralizedContainer } from '../components/CentralizedContainer';
+
+import * as Sc from './page.styled';
+
+const Banner = () => {
+    return (
+        <Sc.BannerSection>
+            <CentralizedContainer>
+                <Sc.SectionContent>
+                    <Sc.Divider />
+
+                    <Sc.SubTitle>
+                        Ритуальная помощь - Могилев и Могилевская область
+                    </Sc.SubTitle>
+
+                    <Sc.MainTitle level={1}>
+                        Достойная память о близких
+                    </Sc.MainTitle>
+
+                    <Sc.Description>
+                        Полный комплекс ритуальных услуг — круглосуточно, по
+                        всей Могилевской области.
+                    </Sc.Description>
+
+                    <Button
+                        type="primary"
+                        href="https://example.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        size="large"
+                        style={{
+                            margin: '16px 0 0',
+                            fontWeight: 300,
+                            borderRadius: '0',
+                            padding: '0 40px',
+                        }}
+                    >
+                        Связаться
+                    </Button>
+
+                    <Sc.BannerBottomDivider />
+                </Sc.SectionContent>
+            </CentralizedContainer>
+        </Sc.BannerSection>
+    );
+};
+
+const HowWeWork = () => {
+    const steps = [
+        {
+            title: 'Звонок и выезд агента',
+            description:
+                'Принимаем звонок 24/7, отправляем агента на дом или в морг в течение часа.',
+        },
+        {
+            title: 'Оформление документов',
+            description:
+                'Получаем медицинское свидетельство, оформляем гербовое в ЗАГСе, помогаем с пособием.',
+        },
+        {
+            title: 'Подготовка церемонии',
+            description:
+                'Подбираем гроб, венки, ритуальные принадлежности. Согласуем зал, транспорт и время.',
+        },
+        {
+            title: 'Погребение и поминки',
+            description:
+                'Копаем могилу, организуем катафалк, проводим прощание и поминальный обед.',
+        },
+    ];
+
+    return (
+        <Sc.Section>
+            <CentralizedContainer>
+                <Sc.SectionContent>
+                    <Sc.SubTitle>Как мы работаем</Sc.SubTitle>
+                    <Sc.Divider />
+                    <Sc.Title level={2}>Этапы организации похорон</Sc.Title>
+                    <Sc.Description>
+                        Берём на себя все хлопоты — от первого звонка до
+                        поминального обеда.
+                    </Sc.Description>
+                </Sc.SectionContent>
+
+                <Sc.Steps>
+                    {steps.map((step, index) => (
+                        <div key={step.title}>
+                            <Divider />
+                            <Sc.StepNumber>0{index + 1}</Sc.StepNumber>
+                            <Sc.StepTitle>{step.title}</Sc.StepTitle>
+                            <Sc.StepDescription>
+                                {step.description}
+                            </Sc.StepDescription>
+                        </div>
+                    ))}
+                </Sc.Steps>
+            </CentralizedContainer>
+        </Sc.Section>
+    );
+};
+
+const Organization = () => {
+    return (
+        <Sc.Section>
+            <CentralizedContainer>
+                <Sc.SectionContent>
+                    <Sc.SubTitle>Тарифы</Sc.SubTitle>
+                    <Sc.Divider />
+                    <Sc.Title level={2}>
+                        Комплексная организация прощания
+                    </Sc.Title>
+                    <Sc.Description>
+                        Готовые комплексы услуг для организации похорон. Берём
+                        на себя всё — от документов до поминального обеда.
+                    </Sc.Description>
+                    <Sc.Description>
+                        Стоимость уточняется индивидуально. Возможна рассрочка и
+                        помощь с получением государственного пособия.
+                    </Sc.Description>
+                </Sc.SectionContent>
+            </CentralizedContainer>
+        </Sc.Section>
+    );
+};
+
+const ContactUs = () => {
+    return (
+        <Sc.ContactUsSection>
+            <CentralizedContainer>
+                <Sc.SectionContent>
+                    <Sc.Title level={1}>
+                        Готовы помочь в любое время суток
+                    </Sc.Title>
+                    <Sc.Description>
+                        Свяжитесь удобным способом — мы на связи 24/7 и ответим
+                        на все вопросы.
+                    </Sc.Description>
+                    <Button
+                        type="primary"
+                        href="https://example.com"
+                        size="large"
+                    >
+                        Позвонить
+                    </Button>
+                    <Button type="primary" variant="solid">
+                        Viber
+                    </Button>
+                    <Button type="primary" variant="solid">
+                        Telegram
+                    </Button>
+                    <Button type="primary" variant="solid">
+                        Whatsapp
+                    </Button>
+                </Sc.SectionContent>
+            </CentralizedContainer>
+        </Sc.ContactUsSection>
+    );
+};
+
+export default function HomePage() {
+    return (
+        <>
+            <Banner />
+            <HowWeWork />
+            <Organization />
+            <ContactUs />
+        </>
+    );
 }
