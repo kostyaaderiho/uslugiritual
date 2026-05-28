@@ -1,14 +1,22 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-  *, *::before, *::after {
-      box-sizing: border-box;
-  }
+    // antd base styles overrides
+    .ant-btn {
+        border-radius: 0 !important;
+    }
 
-  body {
-      margin: 0;
-      font-family: --ant-roboto-family, Arial, sans-serif;
-  }
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: --ant-roboto-family, Arial, sans-serif;
+    }
+
+
 `;
 
 export default GlobalStyles;

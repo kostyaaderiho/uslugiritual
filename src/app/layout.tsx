@@ -35,6 +35,7 @@ const theme: ThemeConfig = {
         },
         Layout: {
             headerBg: '#f9f8f6d9',
+            colorBgSpotlight: '#352e27',
         },
     },
 };
