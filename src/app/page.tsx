@@ -2,6 +2,7 @@
 
 import { Button, Divider } from 'antd';
 import {
+    SendOutlined,
     PhoneOutlined,
     MessageOutlined,
     WhatsAppOutlined,
@@ -12,48 +13,40 @@ import { CentralizedContainer } from '../components';
 
 import * as Sc from './page.styled';
 
-const Banner = () => {
-    return (
-        <Sc.BannerSection>
-            <CentralizedContainer>
-                <Sc.SectionContent>
-                    <Sc.Divider />
+const Banner = () => (
+    <Sc.BannerSection>
+        <CentralizedContainer>
+            <Sc.SectionContent>
+                <Sc.Divider />
 
-                    <Sc.SubTitle>
-                        Ритуальная помощь - Могилев и Могилевская область
-                    </Sc.SubTitle>
+                <Sc.SubTitle>
+                    Ритуальная помощь · Могилев и Могилевская область
+                </Sc.SubTitle>
 
-                    <Sc.MainTitle level={1}>
-                        Достойная память о близких
-                    </Sc.MainTitle>
+                <Sc.MainTitle level={1}>
+                    Достойная память о близких
+                </Sc.MainTitle>
 
-                    <Sc.Description>
-                        Полный комплекс ритуальных услуг — круглосуточно, по
-                        всей Могилевской области.
-                    </Sc.Description>
+                <Sc.Description>
+                    Полный комплекс ритуальных услуг — круглосуточно, по всей
+                    Могилевской области.
+                </Sc.Description>
 
-                    <Button
-                        type="primary"
-                        href="https://example.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        size="large"
-                        style={{
-                            margin: '16px 0 0',
-                            fontWeight: 300,
-                            borderRadius: '0',
-                            padding: '0 40px',
-                        }}
-                    >
-                        Связаться
-                    </Button>
+                <Sc.BannerLink
+                    type="primary"
+                    href="https://example.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="large"
+                >
+                    Связаться
+                </Sc.BannerLink>
 
-                    <Sc.BannerBottomDivider />
-                </Sc.SectionContent>
-            </CentralizedContainer>
-        </Sc.BannerSection>
-    );
-};
+                <Sc.BannerBottomDivider />
+            </Sc.SectionContent>
+        </CentralizedContainer>
+    </Sc.BannerSection>
+);
 
 const HowWeWork = () => {
     const steps = [
@@ -173,7 +166,7 @@ const Organization = () => {
                     {prices.map((price) => (
                         <Sc.Price key={price.title} $isPopular={price.popular}>
                             {price.popular ? (
-                                <Sc.Popular>Популярный</Sc.Popular>
+                                <Sc.PricePopular>Популярный</Sc.PricePopular>
                             ) : null}
                             <Sc.PriceTitle>{price.title}</Sc.PriceTitle>
                             <Sc.PriceDescription>
@@ -223,7 +216,7 @@ const ContactUs = () => {
         },
         {
             title: 'Telegram',
-            icon: <CommentOutlined />,
+            icon: <SendOutlined />,
         },
         {
             title: 'Whatsapp',
@@ -232,7 +225,7 @@ const ContactUs = () => {
     ];
 
     return (
-        <Sc.ContactUsSection>
+        <Sc.ContactUs>
             <CentralizedContainer>
                 <Sc.SectionContent>
                     <Sc.Title level={1}>
@@ -243,9 +236,9 @@ const ContactUs = () => {
                         на все вопросы.
                     </Sc.Description>
 
-                    <Sc.ContactButtons>
+                    <Sc.ContactUsLinks>
                         {contacts.map((contact) => (
-                            <Sc.ContactButton
+                            <Sc.ContactUsLink
                                 key={contact.title}
                                 type="default"
                                 href="https://example.com"
@@ -253,14 +246,14 @@ const ContactUs = () => {
                                 icon={contact.icon}
                             >
                                 {contact.title}
-                            </Sc.ContactButton>
+                            </Sc.ContactUsLink>
                         ))}
-                    </Sc.ContactButtons>
+                    </Sc.ContactUsLinks>
 
-                    <Sc.ContactPhone>+375 (29) 000-00-00</Sc.ContactPhone>
+                    <Sc.ContactUsPhone>+375 (29) 000-00-00</Sc.ContactUsPhone>
                 </Sc.SectionContent>
             </CentralizedContainer>
-        </Sc.ContactUsSection>
+        </Sc.ContactUs>
     );
 };
 

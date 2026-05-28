@@ -8,7 +8,11 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <ThemeProvider theme={token}>
-            <Layout_>{children}</Layout_>
+            <Layout_
+                style={{ flex: 1, display: 'flex', flexDirection: 'column' }}
+            >
+                {children}
+            </Layout_>
         </ThemeProvider>
     );
 };

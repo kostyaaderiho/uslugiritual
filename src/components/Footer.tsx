@@ -8,6 +8,7 @@ const { Footer: Footer_ } = Layout;
 
 const Sc = {
     Footer: styled(Footer_)`
+        background-color: var(--ant-background-2);
         border-top: 1px solid ${({ theme }) => theme.colorBorder};
         padding: 0;
         margin-top: 80px;

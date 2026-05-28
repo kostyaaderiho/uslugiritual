@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ConfigProvider, ThemeConfig, Menu } from 'antd';
+import { ConfigProvider, ThemeConfig } from 'antd';
 
 import { Open_Sans } from 'next/font/google';
 import { Spectral } from 'next/font/google';
@@ -55,11 +55,19 @@ export default function RootLayout({
         <html lang="en" className={`${openSans.variable} ${spectral.variable}`}>
             <body>
                 <ConfigProvider theme={theme}>
-                    <Layout>
-                        <Header />
-                        <Content>{children}</Content>
-                        <Footer />
-                    </Layout>
+                    <div
+                        style={{
+                            minHeight: '100vh',
+                            display: 'flex',
+                            flexDirection: 'column',
+                        }}
+                    >
+                        <Layout>
+                            <Header />
+                            <Content>{children}</Content>
+                            <Footer />
+                        </Layout>
+                    </div>
                     <GlobalStyles />
                 </ConfigProvider>
             </body>

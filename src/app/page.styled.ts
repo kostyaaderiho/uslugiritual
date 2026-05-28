@@ -11,10 +11,6 @@ export const SectionContent = styled.div`
     align-items: center;
 `;
 
-export const BannerSection = styled(Section)`
-    background-color: #e9e6e2;
-`;
-
 export const SubTitle = styled(Typography.Paragraph)`
     text-transform: uppercase;
     color: ${({ theme }) => theme.colorPrimary};
@@ -41,12 +37,22 @@ export const Divider = styled(Divider_).attrs({
     width: 96px;
 `;
 
+export const BannerSection = styled(Section)`
+    background-color: var(--ant-background-1);
+`;
+
+export const BannerLink = styled(Button)`
+    margin-top: 32px;
+    padding: 8px 40px;
+`;
+
 export const BannerBottomDivider = styled(Divider)`
     margin: 24px 0 0 !important;
 `;
 
 export const Description = styled(Typography.Paragraph)`
     text-align: center;
+    /* color: var(--ant-color-text-1) !important; */
 `;
 
 export const Steps = styled.div`
@@ -100,7 +106,7 @@ export const PriceButton = styled(Button)`
     margin-top: auto;
 `;
 
-export const Popular = styled.span`
+export const PricePopular = styled.span`
     align-self: flex-start;
     padding: 4px 16px;
     color: #fff;
@@ -132,34 +138,32 @@ export const PriceServices = styled.ul`
 
 export const PriceService = styled.li``;
 
-export const ContactUsSection = styled(Section)`
+export const ContactUs = styled(Section)`
     background-color: var(--ant-color-bg-spotlight);
 
     & ${Title} {
         color: #fff !important;
     }
-
     & ${Description} {
-        color: #fff !important;
+        color: var(--ant-color-text-1);
     }
 `;
 
-export const ContactButtons = styled.div`
+export const ContactUsLinks = styled.div`
     display: flex;
     gap: 16px;
     margin: 24px 0;
 `;
 
-export const ContactButton = styled(Button)`
-    text-transform: uppercase;
+export const ContactUsLink = styled(Button)`
     background: transparent;
     color: #fff;
     padding: 4px 32px;
     opacity: 0.8;
 `;
 
-export const ContactPhone = styled(Typography.Paragraph)`
-    color: #fff;
+export const ContactUsPhone = styled(Typography.Paragraph)`
     font-size: 22px;
     font-family: --font-eb-garamond;
+    color: var(--ant-color-text-1);
 `;
