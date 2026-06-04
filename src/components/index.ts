@@ -6,3 +6,5 @@ export { Layout } from './Layout';
 export * from './Titles';
 export * from './CallButton';
 export * from './Product';
+export * from './Products';
+export * from './WholeSalePurchase';

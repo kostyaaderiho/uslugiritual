@@ -2,17 +2,87 @@
 
 import styled from 'styled-components';
 import Image from 'next/image';
-import { Typography } from 'antd';
+import { Typography, Divider } from 'antd';
 import Link from 'next/link';
 
 const Sc = {
-    Container: styled.div``,
-    Title: styled(Typography.Paragraph)``,
-    Size: styled(Typography.Paragraph)``,
-    Description: styled(Typography.Paragraph)``,
-    Price: styled(Typography.Text)``,
-    Footer: styled.div``,
-    Link: styled(Link)``,
+    Container: styled.div`
+        box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.05);
+
+        &:hover {
+            box-shadow: 0 8px 32px 8px rgba(0, 0, 0, 0.05);
+        }
+    `,
+
+    Content: styled.div`
+        padding: 16px;
+    `,
+
+    Title: styled(Typography.Title).attrs({
+        level: 3,
+    })`
+        font-family: --font-eb-garamond;
+        font-size: 20px !important;
+        font-weight: 300 !important;
+        margin: 0 0 16px;
+
+        & a {
+            color: ${({ theme }) => theme.colorText};
+
+            &:hover {
+                color: ${({ theme }) => theme.colorPrimary};
+            }
+        }
+    `,
+
+    ImageLink: styled(Link)`
+        display: inline-block;
+        overflow: hidden;
+        font-size: 1px;
+    `,
+
+    Image: styled(Image)`
+        object-fit: cover;
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    `,
+
+    Description: styled(Typography.Paragraph)`
+        font-size: 14px !important;
+    `,
+
+    Size: styled(Typography.Paragraph)`
+        font-family: 11px;
+    `,
+
+    Divider: styled(Divider)`
+        margin: 0;
+    `,
+
+    Footer: styled.div`
+        padding-top: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    `,
+
+    Price: styled(Typography.Text)`
+        font-family: --font-eb-garamond;
+        font-size: 18px !important;
+        color: ${({ theme }) => theme.colorPrimary};
+    `,
+
+    Link: styled(Link)`
+        text-transform: uppercase;
+        color: ${({ theme }) => theme.colorText};
+
+        &:hover {
+            color: ${({ theme }) => theme.colorPrimary};
+        }
+    `,
 };
 
 export type ProductProps = {
@@ -21,24 +91,34 @@ export type ProductProps = {
     sizes: string;
     price: string;
     imgSrc: string;
+    href: string;
 };
 
-export const Product = ({ title, description, sizes, price }: ProductProps) => {
+export const Product = ({
+    title,
+    description,
+    sizes,
+    price,
+    imgSrc,
+    href,
+}: ProductProps) => {
     return (
         <Sc.Container>
-            <Image
-                src={'/images/wreath-1-CQt_nJKf.jpg'}
-                alt=""
-                width={320}
-                height={240}
-            />
-            <Sc.Title>{title}</Sc.Title>
-            <Sc.Size>{sizes}</Sc.Size>
-            <Sc.Description>{description}</Sc.Description>
-            <Sc.Footer>
-                <Sc.Price>{price}</Sc.Price>
-                <Sc.Link href="">Подробнее →</Sc.Link>
-            </Sc.Footer>
+            <Sc.ImageLink href={href}>
+                <Sc.Image src={imgSrc} alt="" width={410} height={320} />
+            </Sc.ImageLink>
+            <Sc.Content>
+                <Sc.Title>
+                    <Link href={href}>{title}</Link>
+                </Sc.Title>
+                <Sc.Size>{sizes}</Sc.Size>
+                <Sc.Description>{description}</Sc.Description>
+                <Sc.Divider />
+                <Sc.Footer>
+                    <Sc.Price>{price}</Sc.Price>
+                    <Sc.Link href={href}>Подробнее →</Sc.Link>
+                </Sc.Footer>
+            </Sc.Content>
         </Sc.Container>
     );
 };

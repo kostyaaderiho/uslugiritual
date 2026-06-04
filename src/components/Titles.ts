@@ -7,7 +7,7 @@ export const MainTitle = styled(Typography.Title)`
     font-family: --font-eb-garamond;
     font-weight: 300 !important;
     font-size: 60px !important;
-    margin: 24px 0 !important;
+    margin: 0 !important;
     text-align: center;
 `;
 
@@ -20,6 +20,7 @@ export const SubTitle = styled(Typography.Paragraph)`
 export const Description = styled(Typography.Paragraph)`
     text-align: center;
     font-size: 16px;
+    margin: 16px 0 0 !important;
 `;
 
 export const ServiceList = styled.ul`

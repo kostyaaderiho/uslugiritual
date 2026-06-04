@@ -21,8 +21,6 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         font-family: --ant-roboto-family, Arial, sans-serif;
     }
-
-
 `;
 
 export default GlobalStyles;
