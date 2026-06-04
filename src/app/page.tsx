@@ -1,15 +1,14 @@
 'use client';
 
-import { Button, Divider } from 'antd';
+import { Divider } from 'antd';
 import {
     SendOutlined,
     PhoneOutlined,
     MessageOutlined,
     WhatsAppOutlined,
-    CommentOutlined,
 } from '@ant-design/icons';
 
-import { CentralizedContainer } from '../components';
+import { CentralizedContainer, CallButton } from '../components';
 
 import * as Sc from './page.styled';
 
@@ -32,15 +31,7 @@ const Banner = () => (
                     Могилевской области.
                 </Sc.Description>
 
-                <Sc.BannerLink
-                    type="primary"
-                    href="https://example.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    size="large"
-                >
-                    Связаться
-                </Sc.BannerLink>
+                <CallButton />
 
                 <Sc.BannerBottomDivider />
             </Sc.SectionContent>

@@ -1,6 +1,6 @@
 'use client';
 
-import { Layout, Menu, Button, Divider } from 'antd';
+import { Menu, Button, Divider } from 'antd';
 import Link from 'next/link';
 import {
     MessageOutlined,
@@ -14,12 +14,11 @@ import Logo from '../assets/icons/logo.svg';
 import { CentralizedContainer } from './CentralizedContainer';
 import * as Sc from './Header.styled';
 
-const { Header: Header_ } = Layout;
 const { SubMenu } = Menu;
 
 export const Header = () => (
-    <Header_ style={{ padding: 0 }}>
-        <CentralizedContainer>
+    <Sc.Container>
+        <CentralizedContainer $withOffset={false}>
             <Sc.Content>
                 <Link href="/">
                     <Sc.LogoContainer>
@@ -34,16 +33,24 @@ export const Header = () => (
                     <Menu.Item key="home">
                         <Link href="/">Главная</Link>
                     </Menu.Item>
-                    {/* <SubMenu key="Ritual_Services" title="Ритуальные Услуги">
-                        <Menu.Item key="service1">
-                            Организация похорон
+                    <SubMenu key="Ritual_Services" title="Ритуальные Услуги">
+                        <Menu.Item key="service-1">
+                            <Link href="/organization-of-funerals">
+                                Организация похорон
+                            </Link>
                         </Menu.Item>
-                        <Menu.Item key="service2">Перевозка тела</Menu.Item>
-                        <Menu.Item key="service3">Копка могил</Menu.Item>
-                        <Menu.Item key="service4">
-                            Аренда ритуального зала
+                        <Menu.Item key="service-2">
+                            <Link href="/transport">Перевозка тела</Link>
                         </Menu.Item>
-                    </SubMenu> */}
+                        <Menu.Item key="service-3">
+                            <Link href="/grave-digging">Копка могил</Link>
+                        </Menu.Item>
+                        <Menu.Item key="service-4">
+                            <Link href="/ritual-hall-rental">
+                                Аренда ритуального зала
+                            </Link>
+                        </Menu.Item>
+                    </SubMenu>
                     <SubMenu key="Ritual_Stuff" title="Ритуальные Товары">
                         <Menu.Item key="wreaths">
                             <Link href="/wreaths">Венки</Link>
@@ -93,5 +100,5 @@ export const Header = () => (
                 </Button>
             </Sc.Content>
         </CentralizedContainer>
-    </Header_>
+    </Sc.Container>
 );

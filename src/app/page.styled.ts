@@ -37,7 +37,7 @@ export const Divider = styled(Divider_).attrs({
     width: 96px;
 `;
 
-export const BannerSection = styled(Section)`
+export const BannerSection = styled.div`
     background-color: var(--ant-background-1);
 `;
 
@@ -52,7 +52,6 @@ export const BannerBottomDivider = styled(Divider)`
 
 export const Description = styled(Typography.Paragraph)`
     text-align: center;
-    /* color: var(--ant-color-text-1) !important; */
 `;
 
 export const Steps = styled.div`

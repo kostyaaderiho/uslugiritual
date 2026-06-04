@@ -3,3 +3,6 @@ export { Content } from './Content';
 export { Header } from './Header';
 export { Footer } from './Footer';
 export { Layout } from './Layout';
+export * from './Titles';
+export * from './CallButton';
+export * from './Product';

@@ -1,4 +1,9 @@
 import styled from 'styled-components';
+import { Layout } from 'antd';
+
+export const Container = styled(Layout.Header)`
+    border-bottom: 1px solid ${({ theme }) => theme.colorBorder};
+`;
 
 export const LogoBorder = styled.div`
     border: 1px solid ${({ theme }) => theme.colorText};
