@@ -56,11 +56,11 @@ export default function RootLayout({
             <body>
                 <ConfigProvider theme={theme}>
                     <div
-                    // style={{
-                    //     minHeight: '100vh',
-                    //     display: 'flex',
-                    //     flexDirection: 'column',
-                    // }}
+                        style={{
+                            minHeight: '100vh',
+                            display: 'flex',
+                            flexDirection: 'column',
+                        }}
                     >
                         <Layout>
                             <Header />

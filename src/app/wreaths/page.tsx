@@ -1,12 +1,12 @@
 import {
     CentralizedContainer,
-    MainTitle,
+    H1Title,
     SubTitle,
     Description,
     Product,
     Products,
     WholeSalePurchase,
-} from '../../components';
+} from '@/components';
 
 export default function Page() {
     const products = [
@@ -50,7 +50,7 @@ export default function Page() {
     return (
         <CentralizedContainer>
             <SubTitle>Каталог</SubTitle>
-            <MainTitle>Траурные венки</MainTitle>
+            <H1Title>Траурные венки</H1Title>
             <Description>
                 Венки из живых и искусственных цветов. Изготавливаем в день
                 обращения, доставляем по Могилеву и области.

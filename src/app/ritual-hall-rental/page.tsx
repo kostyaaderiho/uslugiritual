@@ -3,30 +3,42 @@
 import {
     CentralizedContainer,
     SubTitle,
-    MainTitle,
+    H1Title,
     Description,
-    Service,
-    ServiceList,
     CallButton,
+    Services,
+    Service,
 } from '../../components';
+
+const services: Service[] = [
+    {
+        title: 'Зал на 60 человек',
+    },
+    {
+        title: 'Музыкальное и звуковое сопровождение',
+    },
+    {
+        title: 'Цветочное оформление',
+    },
+    {
+        title: 'Парковка для гостей',
+    },
+    {
+        title: 'Поминальный обед по запросу',
+    },
+];
 
 export default function Page() {
     return (
         <CentralizedContainer>
             <SubTitle>Ритуальные услуги</SubTitle>
-            <MainTitle>Аренда ритуального зала</MainTitle>
+            <H1Title>Аренда ритуального зала</H1Title>
             <Description>
                 Просторный ритуальный зал для прощания в центре Могилева. Тихая
                 обстановка, всё необходимое для церемонии и удобство для
                 близких.
             </Description>
-            <ServiceList>
-                <Service>Зал на 60 человек</Service>
-                <Service>Музыкальное и звуковое сопровождение</Service>
-                <Service>Цветочное оформление</Service>
-                <Service>Парковка для гостей</Service>
-                <Service>Поминальный обед по запросу</Service>
-            </ServiceList>
+            <Services services={services} />
             <CallButton />
         </CentralizedContainer>
     );

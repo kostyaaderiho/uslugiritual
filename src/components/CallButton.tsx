@@ -5,6 +5,7 @@ const Sc = {
     Container: styled.div`
         text-align: center;
     `,
+
     Link: styled(Button)`
         margin: 24px auto;
         padding: 12px 40px !important;
@@ -15,18 +16,24 @@ const Sc = {
     `,
 };
 
-export const CallButton = () => {
-    return (
-        <Sc.Container>
-            <Sc.Link
-                type="primary"
-                href="https://example.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                size="large"
-            >
-                Связаться +375 (29) 000-00-00
-            </Sc.Link>
-        </Sc.Container>
-    );
+export type CallButtonProps = {
+    className?: string;
+    children?: React.ReactNode;
 };
+
+export const CallButton = ({
+    className,
+    children = 'Связаться +375 (29) 000-00-00',
+}: CallButtonProps) => (
+    <Sc.Container className={className}>
+        <Sc.Link
+            type="primary"
+            href="https://example.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            size="large"
+        >
+            {children}
+        </Sc.Link>
+    </Sc.Container>
+);
