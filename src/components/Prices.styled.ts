@@ -1,10 +1,17 @@
 import styled from 'styled-components';
 import { Button, Typography } from 'antd';
 
+import { breakpoints } from '@/constants';
+
 export const Prices = styled.div`
     display: flex;
     gap: 48px;
     margin: 48px 0 24px;
+    flex-direction: column;
+
+    @media (min-width: ${breakpoints.lg}) {
+        flex-direction: row;
+    }
 `;
 
 export const Price = styled.article<{ $isPopular: boolean }>`
@@ -24,7 +31,11 @@ export const Price = styled.article<{ $isPopular: boolean }>`
 `;
 
 export const PriceButton = styled(Button)`
-    margin-top: auto;
+    margin: 16px 0 0;
+
+    @media (min-width: ${breakpoints.lg}) {
+        margin-top: auto;
+    }
 `;
 
 export const PricePopular = styled.span`
@@ -51,6 +62,7 @@ export const PriceNumber = styled(Typography.Paragraph)`
     font-family: --font-eb-garamond;
     font-size: 30px;
     color: ${({ theme }) => theme.colorPrimary};
+    margin: 0 !important;
 `;
 
 export const PriceServices = styled.ul`

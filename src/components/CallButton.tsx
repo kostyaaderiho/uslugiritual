@@ -23,7 +23,7 @@ export type CallButtonProps = {
 
 export const CallButton = ({
     className,
-    children = 'Связаться +375 (29) 000-00-00',
+    children = 'Связаться',
 }: CallButtonProps) => (
     <Sc.Container className={className}>
         <Sc.Link

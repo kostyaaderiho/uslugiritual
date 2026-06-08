@@ -9,7 +9,7 @@ import {
     Prices,
     Services,
     Service,
-} from '../../components';
+} from '@/components';
 
 const services: Service[] = [
     {

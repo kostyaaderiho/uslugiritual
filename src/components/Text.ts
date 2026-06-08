@@ -8,7 +8,7 @@ export const H1Title = styled(Typography.Title).attrs({
 })`
     font-family: --font-eb-garamond;
     font-weight: 300 !important;
-    font-size: 60px !important;
+    font-size: 48px !important;
     margin: 0 !important;
     text-align: center;
 `;
@@ -33,5 +33,6 @@ export const SubTitle = styled(Typography.Paragraph)<{ $centered?: boolean }>`
 export const Description = styled(Typography.Paragraph)`
     text-align: center;
     font-size: 16px;
-    margin: 16px 0 0 !important;
+    margin: 16px auto 0 !important;
+    max-width: 640px;
 `;

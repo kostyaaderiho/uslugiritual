@@ -8,7 +8,14 @@ import {
     WhatsAppOutlined,
 } from '@ant-design/icons';
 
-import { CentralizedContainer, CallButton } from '../components';
+import {
+    CentralizedContainer,
+    Description,
+    CallButton,
+    SubTitle,
+    H2Title,
+    Prices,
+} from '@/components';
 
 import * as Sc from './page.styled';
 
@@ -18,18 +25,18 @@ const Banner = () => (
             <Sc.SectionContent>
                 <Sc.Divider />
 
-                <Sc.SubTitle>
+                <SubTitle>
                     Ритуальная помощь · Могилев и Могилевская область
-                </Sc.SubTitle>
+                </SubTitle>
 
-                <Sc.MainTitle level={1}>
-                    Достойная память о близких
-                </Sc.MainTitle>
+                <Sc.BannerTitle level={1}>
+                    Достойная память <Sc.BannerClose>о близких</Sc.BannerClose>
+                </Sc.BannerTitle>
 
-                <Sc.Description>
+                <Sc.BannerDescription>
                     Полный комплекс ритуальных услуг — круглосуточно, по всей
                     Могилевской области.
-                </Sc.Description>
+                </Sc.BannerDescription>
 
                 <CallButton />
 
@@ -67,13 +74,13 @@ const HowWeWork = () => {
         <Sc.Section>
             <CentralizedContainer>
                 <Sc.SectionContent>
-                    <Sc.SubTitle>Как мы работаем</Sc.SubTitle>
+                    <SubTitle>Как мы работаем</SubTitle>
                     <Sc.Divider />
-                    <Sc.Title level={2}>Этапы организации похорон</Sc.Title>
-                    <Sc.Description>
+                    <H2Title>Этапы организации похорон</H2Title>
+                    <Description>
                         Берём на себя все хлопоты — от первого звонка до
                         поминального обеда.
-                    </Sc.Description>
+                    </Description>
                 </Sc.SectionContent>
 
                 <Sc.Steps>
@@ -93,107 +100,28 @@ const HowWeWork = () => {
     );
 };
 
-const Organization = () => {
-    const prices = [
-        {
-            title: 'Базовый',
-            description: 'Всё необходимое для достойного прощания.',
-            price: 'от 1200 BYN',
-            services: [
-                {
-                    title: 'Оформление документов',
-                },
-                {
-                    title: 'Гроб эконом класса',
-                },
-            ],
-            popular: false,
-        },
-        {
-            title: 'Стандартный',
-            description: 'Полный комплекс услуг с расширенным сопровождением.',
-            price: 'от 2400 BYN',
-            services: [
-                {
-                    title: 'Оформление документов',
-                },
-                {
-                    title: 'Гроб из массива дерева',
-                },
-            ],
-            popular: true,
-        },
-        {
-            title: 'Премиум',
-            description: 'Организация под ключ с индивидуальным подходом.',
-            price: 'от 4 500 BYN',
-            services: [
-                {
-                    title: 'Персональный распорядитель',
-                },
-                {
-                    title: 'Гроб премиум-класса',
-                },
-            ],
-            popular: false,
-        },
-    ];
+const Organization = () => (
+    <Sc.Section>
+        <CentralizedContainer>
+            <Sc.SectionContent>
+                <SubTitle>Тарифы</SubTitle>
+                <Sc.Divider />
+                <H2Title>Комплексная организация прощания</H2Title>
+                <Description>
+                    Готовые комплексы услуг для организации похорон. Берём на
+                    себя всё — от документов до поминального обеда.
+                </Description>
+            </Sc.SectionContent>
 
-    return (
-        <Sc.Section>
-            <CentralizedContainer>
-                <Sc.SectionContent>
-                    <Sc.SubTitle>Тарифы</Sc.SubTitle>
-                    <Sc.Divider />
-                    <Sc.Title level={2}>
-                        Комплексная организация прощания
-                    </Sc.Title>
-                    <Sc.Description>
-                        Готовые комплексы услуг для организации похорон. Берём
-                        на себя всё — от документов до поминального обеда.
-                    </Sc.Description>
-                </Sc.SectionContent>
-                <Sc.Prices>
-                    {prices.map((price) => (
-                        <Sc.Price key={price.title} $isPopular={price.popular}>
-                            {price.popular ? (
-                                <Sc.PricePopular>Популярный</Sc.PricePopular>
-                            ) : null}
-                            <Sc.PriceTitle>{price.title}</Sc.PriceTitle>
-                            <Sc.PriceDescription>
-                                {price.description}
-                            </Sc.PriceDescription>
-                            <Sc.PriceNumber>{price.price}</Sc.PriceNumber>
-                            <Divider />
-                            <Sc.PriceServices>
-                                {price.services.map((service) => (
-                                    <Sc.PriceService key={service.title}>
-                                        {service.title}
-                                    </Sc.PriceService>
-                                ))}
-                            </Sc.PriceServices>
+            <Prices />
 
-                            <Sc.PriceButton
-                                type={price.popular ? 'primary' : 'default'}
-                                href="https://example.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                size="large"
-                            >
-                                Заказать
-                            </Sc.PriceButton>
-                        </Sc.Price>
-                    ))}
-                </Sc.Prices>
-
-                <Sc.Description>
-                    Стоимость уточняется индивидуально. Возможна рассрочка и
-                    помощь с получением государственного пособия.
-                </Sc.Description>
-            </CentralizedContainer>
-        </Sc.Section>
-    );
-};
+            <Description>
+                Стоимость уточняется индивидуально. Возможна рассрочка и помощь
+                с получением государственного пособия.
+            </Description>
+        </CentralizedContainer>
+    </Sc.Section>
+);
 
 const ContactUs = () => {
     const contacts = [
@@ -219,13 +147,13 @@ const ContactUs = () => {
         <Sc.ContactUs>
             <CentralizedContainer>
                 <Sc.SectionContent>
-                    <Sc.Title level={1}>
+                    <Sc.ContactUsTitle>
                         Готовы помочь в любое время суток
-                    </Sc.Title>
-                    <Sc.Description>
+                    </Sc.ContactUsTitle>
+                    <Sc.ContactUsDescription>
                         Свяжитесь удобным способом — мы на связи 24/7 и ответим
                         на все вопросы.
-                    </Sc.Description>
+                    </Sc.ContactUsDescription>
 
                     <Sc.ContactUsLinks>
                         {contacts.map((contact) => (
@@ -241,7 +169,7 @@ const ContactUs = () => {
                         ))}
                     </Sc.ContactUsLinks>
 
-                    <Sc.ContactUsPhone>+375 (29) 000-00-00</Sc.ContactUsPhone>
+                    <Sc.ContactUsPhone>+375 (29) 540-19-19</Sc.ContactUsPhone>
                 </Sc.SectionContent>
             </CentralizedContainer>
         </Sc.ContactUs>

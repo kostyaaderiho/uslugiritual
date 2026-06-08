@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { Layout } from 'antd';
+import { Button, Layout, Typography } from 'antd';
 
 export const Container = styled(Layout.Header)`
     border-bottom: 1px solid ${({ theme }) => theme.colorBorder};
+    padding: 0 !important;
 `;
 
 export const LogoBorder = styled.div`
@@ -29,8 +30,10 @@ export const LogoBorder = styled.div`
 
 export const Content = styled.div`
     display: flex;
-    gap: 32px;
+    gap: 24px;
     align-items: center;
+    height: 64px;
+    justify-content: space-between;
 `;
 
 export const LogoContainer = styled.div`
@@ -53,11 +56,26 @@ export const LogoContainer = styled.div`
     }
 `;
 
-export const LogoText = styled.div`
-    display: flex;
+export const LogoAllText = styled.div`
+    font-family: --font-eb-garamond;
+    font-weight: 300;
+`;
+
+export const LogoText = styled(Typography.Paragraph)`
     color: inherit !important;
-    align-items: center;
+    margin: 0 !important;
+`;
+
+export const LogoTextToMain = styled(LogoText)`
+    text-transform: uppercase;
+    font-size: 10px;
+`;
+
+export const Contacts = styled.div`
+    display: flex;
     gap: 8px;
 `;
 
-export const Contacts = styled.div``;
+export const MenuButton = styled(Button)`
+    flex-shrink: 0;
+`;
