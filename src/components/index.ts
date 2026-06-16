@@ -12,3 +12,4 @@ export * from './SimilarProducts';
 export * from './Link';
 export * from './Prices';
 export * from './Services';
+export * from './ProductDetails';

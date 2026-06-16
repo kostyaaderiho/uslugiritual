@@ -6,7 +6,7 @@ import {
     ProductDetails,
     SimilarProducts,
 } from '@/components';
-import { getWreath } from '@/api/contentful';
+import { getMonument } from '@/api/contentful';
 import { isResponseError } from '@/types';
 import { notFound } from 'next/navigation';
 
@@ -23,7 +23,7 @@ export default async function Page({
 }) {
     const { id } = await params;
 
-    const response = await getWreath(id);
+    const response = await getMonument(id);
 
     if (isResponseError(response)) {
         notFound();
@@ -35,13 +35,13 @@ export default async function Page({
                 {...response.fields}
                 // TODO: update size field in contentful and remove hardcoded value
                 size=""
-                category="Венки"
+                category="Памятники"
                 imageSrc={`https:${response.fields.images[0]?.fields.file?.url || ''}`}
             />
 
             <Sc.Divider size="medium" />
 
-            {/* <SimilarProducts href="/wreaths" products={products} /> */}
+            {/* <SimilarProducts href="/monuments" products={products} /> */}
         </CentralizedContainer>
     );
 }

@@ -36,18 +36,27 @@ const Sc = {
     `,
 
     ImageLink: styled(Link)`
-        display: inline-block;
+        display: block;
+
+        position: relative;
+
+        width: 100%;
+        aspect-ratio: 16 / 18;
+
         overflow: hidden;
-        font-size: 1px;
+        border-radius: 8px;
+        border: 1px solid #eaeaea;
     `,
 
     Image: styled(Image)`
-        object-fit: cover;
         transition: transform 0.3s;
 
         &:hover {
             transform: scale(1.1);
         }
+
+        object-fit: cover;
+        object-position: center;
     `,
 
     Description: styled(Typography.Paragraph)`
@@ -105,7 +114,12 @@ export const Product = ({
     return (
         <Sc.Container>
             <Sc.ImageLink href={href}>
-                <Sc.Image src={imgSrc} alt="" width={410} height={320} />
+                <Sc.Image
+                    sizes="(max-width: 768px) 100vw, 360px"
+                    src={imgSrc}
+                    alt=""
+                    fill
+                />
             </Sc.ImageLink>
             <Sc.Content>
                 <Sc.Title>

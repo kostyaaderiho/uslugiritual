@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 import {
     CentralizedContainer,
     H1Title,
@@ -7,45 +9,17 @@ import {
     Products,
     WholeSalePurchase,
 } from '@/components';
+import { getWreaths } from '@/api/contentful';
+import { isResponseError } from '@/types';
 
-export default function Page() {
-    const products = [
-        {
-            id: '1',
-            title: 'Венок «Светлая память»',
-            description:
-                'Белые розы и лилии на каркасе из живой зелени. Символ чистоты и вечной памяти.',
-            sizes: 'Ø 60 см',
-            price: 'От 4500р',
-            imgSrc: '/images/wreath-1-CQt_nJKf.jpg',
-        },
-        {
-            id: '2',
-            title: 'Венок «Светлая память»',
-            description:
-                'Белые розы и лилии на каркасе из живой зелени. Символ чистоты и вечной памяти.',
-            sizes: 'Ø 60 см',
-            price: 'От 4500р',
-            imgSrc: '/images/wreath-1-CQt_nJKf.jpg',
-        },
-        {
-            title: 'Венок «Светлая память»',
-            description:
-                'Белые розы и лилии на каркасе из живой зелени. Символ чистоты и вечной памяти.',
-            sizes: 'Ø 60 см',
-            price: 'От 4500р',
-            imgSrc: '/images/wreath-1-CQt_nJKf.jpg',
-        },
-        {
-            id: '4',
-            title: 'Венок «Светлая память»',
-            description:
-                'Белые розы и лилии на каркасе из живой зелени. Символ чистоты и вечной памяти.',
-            sizes: 'Ø 60 см',
-            price: 'От 4500р',
-            imgSrc: '/images/wreath-1-CQt_nJKf.jpg',
-        },
-    ];
+export default async function Page() {
+    const response = await getWreaths();
+
+    if (isResponseError(response)) {
+        notFound();
+    }
+
+    const { items: products } = response;
 
     return (
         <CentralizedContainer>
@@ -55,16 +29,20 @@ export default function Page() {
                 Венки из живых и искусственных цветов. Изготавливаем в день
                 обращения, доставляем по Могилеву и области.
             </Description>
+
             <Products>
-                {products.map((product) => (
+                {products.map(({ fields, sys }) => (
                     <Product
-                        key={product.title}
-                        title={product.title}
-                        description={product.description}
-                        price={product.price}
-                        sizes={product.sizes}
-                        imgSrc={product.imgSrc}
-                        href={`/wreaths/${product.id}`}
+                        key={sys.id}
+                        title={fields.title}
+                        description={fields.description}
+                        price={fields.price}
+                        // TODO: update size field in contentful and remove hardcoded value
+                        sizes=""
+                        imgSrc={
+                            `https:${fields.images[0]?.fields.file?.url}` || ''
+                        }
+                        href={`/wreaths/${sys.id}`}
                     />
                 ))}
             </Products>
